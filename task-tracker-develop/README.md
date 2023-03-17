@@ -1,8 +1,3 @@
-# Backend
-
-- Frontend авторства: https://github.com/PE51K/task_tracker
-- Так как frontend был создан на основе коды другого участника решила использовать как backend этот код: https://github.com/Alina200220/TaskTracker вместо  https://github.com/shkurtajadela/task-tracker/tree/main/
-
 **Задачи:**
 1. Написать Dockerfile для своего приложения
 2. Написать в едином репозитории на gitlab.com (бэк+фронт) CI для бэка
