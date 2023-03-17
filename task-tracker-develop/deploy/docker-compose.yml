@@ -1,0 +1,40 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/deploy.conf:/etc/nginx/conf.d/deploy.conf:ro
+      - ../frontend/static:/data/static:ro
+      - ./log:/var/log/nginx
+      - ./log:/var/log/nginx/frontend
+      - ./log:/var/log/nginx/backend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+
+  frontend:
+    build:
+      context: ../frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: on-failure
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app/backend
+      - ./db.sqlite3:/app/backend/db.sqlite3
+    environment:
+      - DEBUG=1
+      - DB_ENGINE=django.db.backends.sqlite3
+      - DB_NAME=/app/db.sqlite3
+    ports:
+      - "8000:8000"
+    restart: on-failure
