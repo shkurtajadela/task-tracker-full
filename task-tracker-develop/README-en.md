@@ -1,9 +1,9 @@
 **Tasks**
 1. Write a Dockerfile for your application
 2. Write in a single repository on gitlab.com (back+front) CI for back
-  1. Linter stage (you can use echo output instead of real ones)
-  2. Test stage (you can use echo output instead of real ones)
-  3. Stage of building and uploading the docker image to the gitlab registry
+    1. Linter stage (you can use echo output instead of real ones)
+    2. Test stage (you can use echo output instead of real ones)
+    3. Stage of building and uploading the docker image to the gitlab registry
 3. Write a config for nginx, in which
   1. Proxy servers for front and back are registered
   2. Statics is distributed via the /static/ URL (if available)
